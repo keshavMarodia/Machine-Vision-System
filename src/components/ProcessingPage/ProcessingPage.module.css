@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  align-items: flex-start;
+}
+.table {
+  display: flex;
+  flex-direction: column;
+  padding: 10%;
+  gap: 100px;
+}
