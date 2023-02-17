@@ -1,8 +1,9 @@
-import classes from "./CapturedImage.module.css";
+import classes from  "./CapturedImage.module.css";
+
 import Image from "./Image";
-import { Button } from "@mui/material";
 import { useState } from "react";
 import axios from "axios";
+
 const CapturedImage = (props) => {
   const [capturedImage, setCapturedImage] = useState("");
   const [capture, setCapture] = useState(0);
@@ -50,25 +51,41 @@ const CapturedImage = (props) => {
     <div className={classes.container}>
       <p>Captured Image</p>
       <Image src={capturedImage} halfImage={halfImage} />
-      <div className={classes.buttons}>
-        <Button variant="contained">Origin</Button>
-        <Button variant="contained" onClick={nextFrameHandler}>
-          Next Frame
-        </Button>
+      <div className={classes.container}>
+      <table>
+      <tr>
+          <td>
+            <button className={classes.button64}>
+              <span class="text">Origin</span>
+            </button>
+          </td>
+          <td>
+            <button className={classes.button64} onClick={nextFrameHandler}>
+              <span class="text">Next Frame</span>
+            </button>
+          </td>
+      </tr>
+      <tr>
+        <td>
+            <button className={classes.button64} disabled={props.capture} onClick={captureHandler}>
+                <span class="text">Capture</span>
+            </button>
+        </td>
+        <td>
+          <button className={classes.button64} onClick={processHandler}>
+            <span class="text">Process</span>
+          </button>
+        </td>
+      </tr>
+      </table>
       </div>
-      <div className={classes.buttons}>
-        <Button
-          variant="contained"
-          disabled={props.captureEnable}
-          onClick={captureHandler}
-        >
-          Capture
-        </Button>
-        <Button variant="contained" onClick={processHandler}>
-          Process
-        </Button>
-      </div>
+
+
     </div>
   );
 };
 export default CapturedImage;
+
+
+
+

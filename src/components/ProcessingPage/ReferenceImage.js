@@ -1,4 +1,4 @@
-import classes from "./ReferenceImage.module.css";
+import classes from "./CapturedImage.module.css";
 import Image from "./Image";
 import { Button } from "@mui/material";
 import InputLabel from "@mui/material/InputLabel";
@@ -6,6 +6,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { useState, useRef } from "react";
+
 const ReferenceImage = (props) => {
   const [src, setSrc] = useState("");
   const [parent, setParent] = useState("");
@@ -68,9 +69,12 @@ const ReferenceImage = (props) => {
         </FormControl>
       </div>
       <div className={classes.buttons}>
-        <Button onClick={uploadFile} variant="contained">
-          Choose File
-        </Button>
+      <table>
+        <tr>
+          <td>
+          <button className={classes.button64} onClick={uploadFile}>
+              <span class="text">Choose file</span>
+        </button>
         <input
           type="file"
           ref={hiddenFileInput}
@@ -78,7 +82,14 @@ const ReferenceImage = (props) => {
           style={{ display: "none" }}
           accept="image/jpg,image/png"
         />
-        <Button variant="contained">Upload</Button>
+        </td>
+        <td>
+        <button className={classes.button64}>
+              <span class="text">Origin</span>
+        </button>
+        </td>
+        </tr>
+      </table>
       </div>
     </div>
   );

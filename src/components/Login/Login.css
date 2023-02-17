@@ -10,7 +10,15 @@
     align-items: center;
 }
 .logo{
-    padding: 20px;
+    padding: 50px 50px 40px 32px;
+    width : 62%;
+}
+
+.img-contianer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .form-parent{
     display: flex;

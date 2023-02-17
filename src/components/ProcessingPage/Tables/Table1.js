@@ -1,4 +1,4 @@
-import './Table1.css'
+import './Table.css'
 
 const rows = [
   { id: 1, name: "t1", x: 1, y: 2 },
@@ -7,24 +7,30 @@ const rows = [
 
 const Table1 = (props) => {
   return (
+    <div>
+    <div>Table From Reference image</div>
     <table class="styled-table">
     <thead>
         <tr>
-            <th>Name</th>
-            <th>Points</th>
+            <th>ID</th>
+            <th>Abscissa</th>
+            <th>Ordinate</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>Table 1</td>
-            <td>6000</td>
+            <td>3</td>
+            <td>12</td>
+            <td>1</td>
         </tr>
         <tr class="active-row">
-            <td>Melissa</td>
-            <td>5150</td>
+            <td>4</td>
+            <td>5</td>
+            <td>4</td>
         </tr>
     </tbody>
 </table>
+</div>
     // <TableContainer component={Paper}>
     //   <Table sx={{ minWidth: 650 }} aria-label="simple table">
     //     <TableHead>
