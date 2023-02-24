@@ -5,9 +5,17 @@ import { useState } from "react";
 import axios from "axios";
 
 const CapturedImage = (props) => {
+
   const [capturedImage, setCapturedImage] = useState("");
-  const [capture, setCapture] = useState(0);
+  const [capture, setCapture] = useState(1);
   const [halfImage, sethalfImage] = useState(false);
+
+  // const nextframeBtn = document.getElementById("next_frame");
+  // if(nextframeBtn) nextframeBtn.disabled = true;
+
+  // const processBtn = document.getElementById("process");
+  // if(processBtn) processBtn.disabled = true;
+
   const captureHandler = () => {
     if (capture === 0) {
       setCapture(1);
@@ -23,12 +31,15 @@ const CapturedImage = (props) => {
       sethalfImage(false);
     }
   };
+
   const nextFrameHandler = () => {
     setCapture(2);
   };
+
   const processHandler = () => {
     props.openTable();
     setCapturedImage("https://cdn.hswstatic.com/gif/gears-1.jpg");
+
     axios({
       method: "post",
       responseType: "json",
@@ -55,24 +66,24 @@ const CapturedImage = (props) => {
       <table>
       <tr>
           <td>
-            <button className={classes.button64}>
+            <button className={classes.button64} id="origin">
               <span class="text">Origin</span>
             </button>
           </td>
           <td>
-            <button className={classes.button64} onClick={nextFrameHandler}>
+            <button className={classes.button64} id="next_frame" onClick={nextFrameHandler}>
               <span class="text">Next Frame</span>
             </button>
           </td>
       </tr>
       <tr>
         <td>
-            <button className={classes.button64} disabled={props.capture} onClick={captureHandler}>
+            <button className={classes.button64} id="capture" onClick={captureHandler}>
                 <span class="text">Capture</span>
             </button>
         </td>
         <td>
-          <button className={classes.button64} onClick={processHandler}>
+          <button className={classes.button64} id="process" onClick={processHandler}>
             <span class="text">Process</span>
           </button>
         </td>

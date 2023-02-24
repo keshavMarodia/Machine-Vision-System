@@ -44,6 +44,17 @@
   transition: 300ms;
 }
 
+.button64:disabled span{
+  background-color: #3b3736;
+  background-color: rgb(99, 101, 249);
+  padding: 8px 8px;
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+}
+
+
 .button64:hover span {
   background: none;
 }

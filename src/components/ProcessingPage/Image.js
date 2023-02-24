@@ -1,5 +1,6 @@
 import classes from "./Image.module.css";
 import { Paper } from "@mui/material";
+
 const Image = (props) => {
   return (
     <Paper elevation={3} className={props.halfImage?classes.framehalf:classes.frame}>

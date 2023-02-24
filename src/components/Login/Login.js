@@ -8,11 +8,13 @@ const Login = (props) => {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  //const [redirect, setRedirect]= useState("");
 
   const [fill, setFill] = useState(false);
   const [error, setError] = useState(false);
   const [empty, setEmpty] = useState(false);
   const [incorrect, setIncorrect] = useState(false);
+  
 
   const listURL = "http://localhost:8000/api/list";
   const userURL = "http://localhost:8000/api/user";
@@ -21,8 +23,21 @@ const Login = (props) => {
     const data = { username, password };
     e.preventDefault();
 
+
+   let redirect  = document.querySelector('#select1').value;
+    console.log(redirect);
+
     if(username === "Keshav" && password==="Marodia"){
-      navigate("/process");
+      if(redirect === "Marking" || redirect === "Drilling"){
+        navigate("/process");
+      }
+      else if(redirect === "Torquing"){
+        navigate("/torquing");
+      }
+      else{
+        navigate("/wirelocking");
+      }
+
     }
 
     // if (username == "" || password == "") {
@@ -59,6 +74,7 @@ const Login = (props) => {
     navigate("/signup");
     return;
   };
+
   return (
     <div className="login-parent">
       <div className="login-child">
@@ -68,6 +84,16 @@ const Login = (props) => {
             alt="logo"
             className="logo"
           />
+        </div>
+        <div class="dropdown">
+             <p> Select one from the given options:
+                  <select id="select1">
+                    <option value="Marking">Marking</option>
+                    <option value="Drilling">Drilling</option>
+                    <option value="Torquing">Torquing</option>
+                    <option value="Wirelocking">Wirelocking</option>
+                  </select>
+             </p>
         </div>
         <div>
           <form className="form-parent">
